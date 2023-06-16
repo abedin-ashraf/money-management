@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Money Manager</title>
 
     <!-- CSS Link  -->
     <link rel="stylesheet" href="css/style.css">
@@ -16,23 +16,23 @@
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <h2 id="head" class="text-center">Money Manager</h2>
+    </header>
     <main>
         <div class="container text-center">
             <div class="row">
-                <div class="col-6"><img src="img/image1.jpg" class="img-fluid" alt=""></div>
-
-
-                <div id="formArea" class="col-6">
+                <div class="col-xl-7"><img src="img/image1.jpg" class="img-fluid" alt=""></div>
+                <div class="col-xl-5 mb-2" id="formArea">
                     <form>
-                        <h5>Income</h5>
+                        <h5 class="heading">Income</h5>
                         <div class="row mb-3 d-flex justify-content-center">
                             <label for="inputIncome" class="col-sm-2 col-form-label">Income:</label>
                             <div class="col-sm-6">
                                 <input type="income" class="form-control" id="inputIncome">
                             </div>
                         </div>
-                        <h5>Expenses</h5>
+                        <h5 class="heading">Expenses</h5>
                         <div class="row mb-3 d-flex justify-content-center">
                             <label for="inputFood" class="col-sm-2 col-form-label">Food:</label>
                             <div class="col-sm-6">
@@ -53,40 +53,39 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Calculate</button>
 
-                    </form>
+                        <!-- Total Expenses -->
+                        <h5 class="heading">Total Expenses: <span id="total-expenses"></span></h5>
+                        <!-- Balance  -->
+                        <h5 class="heading">Balance: <span id="balance"></span></h5>
 
-                    <!-- Total Expenses -->
-                    <h5 class="heading">Total Expenses: <span id="total-expenses"></span></h5>
-                    <!-- Balance  -->
-                    <h5 class="heading">Balance: <span id="balance"></span></h5>
-
-                    <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
-                        <div class="col-12">
-                            <h6>Save: </h6>
-                        </div>
-                        <div class="col-12">
-                            <label class="visually-hidden" for="inlineFormInputGroupUsername"></label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="inlineFormInputGroupUsername">
+                        <!-- Saving -->
+                        <div class="row mb-3 d-flex justify-content-center">
+                            <label for="inputSave" class="col-sm-2 col-form-label">Save</label>
+                            <div class="col-sm-3">
+                                <input type="save" class="form-control" id="inputSave">
+                            </div>
+                            <div class="col-sm-1">%</div>
+                            <div class="col-sm-1">
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <h6>%</h6>
+
+                        <div class="row d-flex justify-content-center">
+                            <!-- Saving Amount -->
+                            <h5 class="heading">Saving Amount: <span id="saving-amount"></span></h5>
+                            <!-- Remaining Balance -->
+                            <h5>Remaining Balance: <span id="remaining-balance"></span></h5>
                         </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div>
+
+                        <!-- Error Message  -->
+                        <h3 class="text-center mt-3">222</h3>
                     </form>
-
-                    <!-- Saving Amount -->
-                    <h5 class="heading">Saving Amount: <span id="saving-amount"></span></h5>
-                    <!-- Remaining Balance -->
-                    <h5 class="heading">Remaining Balance: <span id="remaining-balance"></span></h5>
-
                 </div>
             </div>
+
         </div>
     </main>
+
 
     <!-- Bootstrap Link  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
