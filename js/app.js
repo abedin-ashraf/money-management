@@ -2,11 +2,6 @@ function getValue(id) {
     const input = document.getElementById(id).value;
     return parseFloat(input);
 }
-function previousString(id) {
-    const total = document.getElementById(id);
-    const totaleValueString = total.innerText;
-    return totaleValueString;
-}
 
 function showErrorMessage(message) {
     const errorMessage = document.getElementById('errorMessage');
@@ -23,7 +18,7 @@ document.getElementById('calculate').addEventListener('click', function () {
     const error = document.getElementById('error');
 
     //Error Message
-    if (income < 1 || foodValue > income || rentValue > income || clothesValue > income) {
+    if (income < 0 || foodValue < 0 || rentValue < 0 || clothesValue < 0) {
         showErrorMessage("Please Insert Positive Number");
 
     }
@@ -38,18 +33,22 @@ document.getElementById('calculate').addEventListener('click', function () {
 
         //Total Expenses
         const totalExpense = document.getElementById('total-expenses');
-        const totalExpenseValue = totalExpense.innerText;
         const expenseValue = foodValue + rentValue + clothesValue;
         const expensesValueString = '' + expenseValue;
-        totalExpense.innerText = totalExpenseValue + expensesValueString;
+        totalExpense.innerText = expensesValueString;
 
         //Balance
         const balance = document.getElementById('balance');
-        const balanceValue = balance.innerText;
         const totalBalance = income - expenseValue;
         const totalBalanceString = '' + totalBalance;
 
-        balance.innerText = balanceValue + totalBalanceString;
+        balance.innerText = totalBalanceString;
+
+        if (income < expenseValue) {
+            showErrorMessage("Expense is more than income. So You can't save!");
+            document.getElementById('savingArea').style.display = 'none';
+
+        }
 
         //Save
         document.getElementById('saveButton').addEventListener('click', function () {
@@ -60,7 +59,6 @@ document.getElementById('calculate').addEventListener('click', function () {
 
 
             const savingAmount = document.getElementById('saving-amount');
-            const savingValue = savingAmount.innerText;
 
             const savedAmount = income * (savePercent / 100);
 
@@ -78,7 +76,7 @@ document.getElementById('calculate').addEventListener('click', function () {
 
                 const saveAmountString = '' + savedAmount;
 
-                savingAmount.innerText = savingValue + saveAmountString;
+                savingAmount.innerText = saveAmountString;
 
                 //Remaining
                 const remain = document.getElementById('remaining-balance');
@@ -87,7 +85,7 @@ document.getElementById('calculate').addEventListener('click', function () {
                 const remainingBalance = totalBalance - savedAmount;
                 const remainingBalanceString = '' + remainingBalance;
 
-                remain.innerText = remainValue + remainingBalanceString;
+                remain.innerText = remainingBalanceString;
             }
         })
     }
