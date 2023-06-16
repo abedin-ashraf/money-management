@@ -3,11 +3,18 @@
     margin-bottom: 25px;
 }
 
+/* for heading */
 .heading {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
+/* Background color for the form background */
+
 #formArea {
     background-color: #f8f8f8;
+}
+
+#error {
+    display: none;
 }
